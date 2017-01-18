@@ -1,6 +1,6 @@
 $(function () {
-    $cat = $("#cat");
-    $clicks = $("#clicks");
+    var $cat = $("#cat");
+    var $clicks = $("#clicks");
 
     var clickCount = 0;
     $clicks.text(clickCount);
