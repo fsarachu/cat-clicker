@@ -1,0 +1,18 @@
+{
+  "name": "cat-clicker",
+  "homepage": "https://github.com/fsarachu/cat-clicker",
+  "authors": [
+    "fsarachu <fsarachu@gmail.com>"
+  ],
+  "description": "Project for Udacity's \"JavaScript Design Patterns\" course.",
+  "main": "",
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
