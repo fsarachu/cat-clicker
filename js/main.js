@@ -2,14 +2,17 @@ function Cat(name, image) {
     this.name = name;
     this.image = "images/" + image;
     this.clicks = 0;
+    this.toHtml = function () {
+        var html = "<div class='col-sm-6 text-center'>" +
+            "<h2>" + this.name + ": <span class='clicks'>" + this.clicks + "</span></h2>" +
+            "<img src='" + this.clicks + "' alt='A picture of " + this.name + "' class='cat img-responsive center-block'>" +
+            "</div>";
+
+        return html;
+    }
 }
 
 $(function () {
-    var cat_html = "<div class='col-sm-6 text-center'>" +
-        "<h2>{name}: <span class='clicks'>{clicks}</span></h2>" +
-        "<img src='{image}' alt='A picture of {name}' class='cat img-responsive center-block'>" +
-        "</div>";
-
     var $catContainer = $("#cat-container");
     $catContainer.append($("<h1>All cats will display here</h1>"));
 });
