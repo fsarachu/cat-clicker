@@ -13,6 +13,14 @@ function Cat(name, image) {
 }
 
 $(function () {
+    var bob = new Cat("Bob", "bob.jpg");
+    var chloe = new Cat("Chloe", "chloe.jpg");
+
+    var cats = [bob, chloe];
+
     var $catContainer = $("#cat-container");
-    $catContainer.append($("<h1>All cats will display here</h1>"));
+
+    cats.forEach(function (cat) {
+        $catContainer.prepend(cat.toHtml());
+    });
 });
