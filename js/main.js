@@ -1,12 +1,10 @@
+function Cat(name, image) {
+    this.name = name;
+    this.image = "images/" + image;
+    this.clicks = 0;
+}
+
 $(function () {
-    var $cat = $("#cat");
-    var $clicks = $("#clicks");
-
-    var clickCount = 0;
-    $clicks.text(clickCount);
-
-    $cat.on("click", function () {
-        clickCount += 1;
-        $clicks.text(clickCount);
-    });
+    var $catContainer = $("#cat-container");
+    $catContainer.append($("<h1>All cats will display here</h1>"));
 });
