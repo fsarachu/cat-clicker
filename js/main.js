@@ -1,5 +1,5 @@
-function Cat(name, image) {
-    this.id = null;
+function Cat(id, name, image) {
+    this.id = id;
     this.name = name;
     this.image = image;
     this.clicks = 0;
@@ -14,14 +14,15 @@ function Cat(name, image) {
 }
 
 $(function () {
+    var id = 0;
+
     var cats = [];
-    cats.push(new Cat("Bob", "bob.jpg"));
-    cats.push(new Cat("Chloe", "chloe.jpg"));
+    cats.push(new Cat(id++, "Bob", "bob.jpg"));
+    cats.push(new Cat(id++, "Chloe", "chloe.jpg"));
 
     var $catContainer = $("#cat-container");
 
     cats.forEach(function (cat, index) {
-        cat.id = index;
         $catContainer.prepend(cat.toHtml());
     });
 
