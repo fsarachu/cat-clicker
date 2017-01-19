@@ -23,7 +23,7 @@ $(function () {
     var $catContainer = $("#cat-container");
 
     cats.forEach(function (cat, index) {
-        $catContainer.prepend(cat.toHtml());
+        $catContainer.append(cat.toHtml());
     });
 
     $("#cat-container").on("click", ".cat", function (target) {
