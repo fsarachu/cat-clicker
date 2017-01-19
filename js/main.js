@@ -14,10 +14,9 @@ function Cat(name, image) {
 }
 
 $(function () {
-    var bob = new Cat("Bob", "bob.jpg");
-    var chloe = new Cat("Chloe", "chloe.jpg");
-
-    var cats = [bob, chloe];
+    var cats = [];
+    cats.push(new Cat("Bob", "bob.jpg"));
+    cats.push(new Cat("Chloe", "chloe.jpg"));
 
     var $catContainer = $("#cat-container");
 
