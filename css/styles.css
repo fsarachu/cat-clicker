@@ -11,6 +11,10 @@ body {
     overflow: auto;
 }
 
+.cat-name {
+    font-weight: 700;
+}
+
 .cat-picture {
     display: block;
     margin: 0 auto;

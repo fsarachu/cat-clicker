@@ -28,7 +28,12 @@ function listPopulator(cats) {
     });
 }
 
+function showCat(cat) {
+
+}
+
 $(function () {
     var cats = catSeeder();
     listPopulator(cats);
+
 });
