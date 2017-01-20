@@ -23,9 +23,11 @@ $(function () {
     cats.push(new Cat(id++, "Tiger", "tiger.jpg"));
 
     var $catContainer = $("#cat-container");
+    var $catList = $("#cat-list");
 
     cats.forEach(function (cat) {
-        $catContainer.append(cat.toHtml());
+        $catList.append("<a href='#' class='list-group-item'>" + cat.name +
+            "<span class='badge'>" + cat.clicks + "</span></a>");
     });
 
     $catContainer.on("click", ".cat", function ($e) {
