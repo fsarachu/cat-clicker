@@ -25,13 +25,15 @@ $(function () {
     });
 
     $catContainer.on("click", ".cat", function ($e) {
-        var catElement = $e.target;
-        var catId = Number((catElement.id).split("-")[1]);
+        var $cat = $($e.target);
+        var catId = Number(($cat.attr("id")).split("-")[1]);
 
         var catObject = cats[catId];
-        // console.log("Before: " + catObject.clicks);
+        console.log("Before: " + catObject.clicks);
         catObject.clicks += 1;
-        // console.log("After: " + catObject.clicks);
+        console.log("After: " + catObject.clicks);
+
+
     })
 
 });
