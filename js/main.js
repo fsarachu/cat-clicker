@@ -5,7 +5,7 @@ function Cat(id, name, image) {
     this.clicks = 0;
 }
 
-function catPopulator() {
+function catSeeder() {
     var id = 0;
 
     var cats = [];
@@ -20,7 +20,7 @@ function catPopulator() {
 }
 
 $(function () {
-    var cats = catPopulator();
+    var cats = catSeeder();
     var $catList = $("#cat-list");
 
     cats.forEach(function (cat) {
