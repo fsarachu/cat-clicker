@@ -1,0 +1,13 @@
+body {
+    background-color: #ff9800;
+    padding: 70px 0;
+}
+
+#cat-panel {
+    height: 350px;
+}
+
+#cat-list {
+    max-height: 350px;
+    overflow: auto;
+}
