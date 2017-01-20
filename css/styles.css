@@ -1,13 +1,24 @@
 body {
-    background-color: #ff9800;
-    padding: 70px 0;
+    background-color: #424242;
+    padding: 50px 0;
 }
 
-#cat-panel {
-    height: 350px;
+#cat-panel, #cat-list {
+    height: 350px
 }
 
 #cat-list {
-    max-height: 350px;
     overflow: auto;
+}
+
+#cat-panel .panel-body {
+    overflow: auto;
+}
+
+.cat-picture {
+    display: block;
+    margin: 0 auto;
+    padding: 0;
+    max-width: 300px;
+    max-height: 300px;
 }
