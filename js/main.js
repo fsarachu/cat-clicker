@@ -4,12 +4,10 @@ function Cat(id, name, image) {
     this.image = image;
     this.clicks = 0;
     this.toHtml = function () {
-        var html = "<div class='col-sm-6 text-center'>" +
+        return "<div class='col-sm-6 text-center'>" +
             "<h2>" + this.name + ": <span class='clicks'>" + this.clicks + "</span></h2>" +
             "<img id='cat-" + this.id + "' src='images/" + this.image + "' alt='A picture of " + this.name + "' class='cat img-responsive center-block'>" +
             "</div>";
-
-        return html;
     }
 }
 
