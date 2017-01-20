@@ -5,7 +5,7 @@ function Cat(id, name, image) {
     this.clicks = 0;
 }
 
-$(function () {
+function catPopulator() {
     var id = 0;
 
     var cats = [];
@@ -16,22 +16,15 @@ $(function () {
     cats.push(new Cat(id++, "Sophie", "sophie.jpg"));
     cats.push(new Cat(id++, "Tiger", "tiger.jpg"));
 
-    var $catContainer = $("#cat-container");
+    return cats;
+}
+
+$(function () {
+    var cats = catPopulator();
     var $catList = $("#cat-list");
 
     cats.forEach(function (cat) {
         $catList.append("<a href='#' class='list-group-item'>" + cat.name +
             "<span class='badge'>" + cat.clicks + "</span></a>");
     });
-
-    $catContainer.on("click", ".cat", function ($e) {
-        var $cat = $($e.target);
-        var catId = Number(($cat.attr("id")).split("-")[1]);
-
-        var catObject = cats[catId];
-        catObject.clicks += 1;
-
-        $cat.parent().find(".clicks").text(catObject.clicks);
-    })
-
 });
