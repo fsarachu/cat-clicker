@@ -17,6 +17,10 @@ $(function () {
     var cats = [];
     cats.push(new Cat(id++, "Bob", "bob.jpg"));
     cats.push(new Cat(id++, "Chloe", "chloe.jpg"));
+    cats.push(new Cat(id++, "Milo", "milo.jpg"));
+    cats.push(new Cat(id++, "Samantha", "samantha.jpg"));
+    cats.push(new Cat(id++, "Sophie", "sophie.jpg"));
+    cats.push(new Cat(id++, "Tiger", "tiger.jpg"));
 
     var $catContainer = $("#cat-container");
 
