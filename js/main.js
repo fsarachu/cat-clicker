@@ -46,8 +46,8 @@ function displayCat(cat) {
 }
 
 function updateCounters(cat) {
-    $("#cat-panel .cat-clicks").text(cat.clicks);
-    $("#cat-list a[data-cat-id=" + cat.id + "] .cat-clicks").text(cat.clicks);
+    $("#cat-panel").find(".cat-clicks").text(cat.clicks);
+    $("#cat-list").find("a[data-cat-id=" + cat.id + "] .cat-clicks").text(cat.clicks);
 }
 
 $(function () {
@@ -56,7 +56,7 @@ $(function () {
 
     displayCat(cats[3]);
 
-    $("#cat-panel .cat-picture").on("click", function ($e) {
+    $("#cat-panel").find(".cat-picture").on("click", function ($e) {
         var $target = $($e.target);
         var catId = $target.data("cat-id");
 
