@@ -23,8 +23,8 @@ function listPopulator(cats) {
     var $catList = $("#cat-list");
 
     cats.forEach(function (cat) {
-        $catList.append("<a data-cat-id='" + cat.id + "' href='#' class='list-group-item'>" + cat.name
-            + "<span class='cat-clicks badge'>" + cat.clicks + "</span></a>");
+        $catList.append("<a data-cat-id=\"" + cat.id + "\" href=\"#\" class=\"list-group-item\">" + cat.name
+            + "<span class=\"cat-clicks badge\">" + cat.clicks + "</span></a>");
     });
 }
 
