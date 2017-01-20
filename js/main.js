@@ -65,4 +65,19 @@ $(function () {
 
         updateCounters(cat);
     });
+
+    $("#cat-list").on("click", "a", function ($e) {
+        $e.preventDefault();
+
+        var $target = $($e.target);
+        $target.parent().find(".active").removeClass("active");
+        $target.addClass("active");
+
+        var catId = $target.data("cat-id");
+        console.log(catId);
+        var cat = cats[catId];
+        displayCat(cat);
+    });
+
+    $("#cat-list").children().first().trigger("click");
 });
