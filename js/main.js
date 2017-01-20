@@ -29,11 +29,9 @@ $(function () {
         var catId = Number(($cat.attr("id")).split("-")[1]);
 
         var catObject = cats[catId];
-        console.log("Before: " + catObject.clicks);
         catObject.clicks += 1;
-        console.log("After: " + catObject.clicks);
 
-
+        $cat.parent().find(".clicks").text(catObject.clicks);
     })
 
 });
