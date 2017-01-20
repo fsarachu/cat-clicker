@@ -19,12 +19,16 @@ function catSeeder() {
     return cats;
 }
 
-$(function () {
-    var cats = catSeeder();
+function listPopulator(cats) {
     var $catList = $("#cat-list");
 
     cats.forEach(function (cat) {
-        $catList.append("<a href='#' class='list-group-item'>" + cat.name +
-            "<span class='badge'>" + cat.clicks + "</span></a>");
+        $catList.append("<a data-cat-id='" + cat.id + "' href='#' class='list-group-item'>" + cat.name
+            + "<span class='badge'>" + cat.clicks + "</span></a>");
     });
+}
+
+$(function () {
+    var cats = catSeeder();
+    listPopulator(cats);
 });
