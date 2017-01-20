@@ -28,12 +28,25 @@ function listPopulator(cats) {
     });
 }
 
-function showCat(cat) {
+function displayCat(cat) {
+    var $panel = $("#cat-panel");
+    var $panelHeading = $panel.find(".panel-heading");
+    var $panelBody = $panel.find(".panel-body");
 
+    var $name = $panelHeading.find(".cat-name");
+    $name.text(cat.name);
+
+    var $picture = $panelBody.find(".cat-picture");
+    $picture.attr("src", "images/" + cat.image);
+    $picture.attr("alt", "A picture of " + cat.name);
+    $picture.attr("data-cat-id", cat.id);
+
+    var $clicks = $panelBody.find(".cat-clicks");
+    $clicks.text(cat.clicks);
 }
 
 $(function () {
     var cats = catSeeder();
     listPopulator(cats);
-
+    displayCat(cats[4]);
 });
