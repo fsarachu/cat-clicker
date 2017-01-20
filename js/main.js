@@ -45,8 +45,16 @@ function displayCat(cat) {
     $clicks.text(cat.clicks);
 }
 
+function updateCounters(cat) {
+    $("#cat-panel .cat-clicks").text(cat.clicks);
+    $("#cat-list a[data-cat-id=" + cat.id + "] .cat-clicks").text(cat.clicks);
+}
+
 $(function () {
     var cats = catSeeder();
     listPopulator(cats);
-    displayCat(cats[4]);
+
+    displayCat(cats[3]);
+    cats[3].clicks = 23;
+    updateCounters(cats[3]);
 });
