@@ -55,6 +55,14 @@ $(function () {
     listPopulator(cats);
 
     displayCat(cats[3]);
-    cats[3].clicks = 23;
-    updateCounters(cats[3]);
+
+    $("#cat-panel .cat-picture").on("click", function ($e) {
+        var $target = $($e.target);
+        var catId = $target.data("cat-id");
+
+        var cat = cats[catId];
+        cat.clicks += 1;
+
+        updateCounters(cat);
+    });
 });
