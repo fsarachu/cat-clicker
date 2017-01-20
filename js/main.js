@@ -58,7 +58,7 @@ $(function () {
 
     $("#cat-panel").find(".cat-picture").on("click", function ($e) {
         var $target = $($e.target);
-        var catId = $target.data("cat-id");
+        var catId = parseInt($target.attr("data-cat-id"));
 
         var cat = cats[catId];
         cat.clicks += 1;
