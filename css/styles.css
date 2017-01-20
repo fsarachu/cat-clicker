@@ -11,10 +11,6 @@ body {
     overflow: auto;
 }
 
-#cat-panel .panel-body {
-    overflow: auto;
-}
-
 .cat-picture {
     display: block;
     margin: 0 auto;
