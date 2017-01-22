@@ -26,9 +26,9 @@
             <div id="cat-list" class="list-group"></div>
         </div>
     </div>
-    <div class="row admin-btn">
+    <div class="row">
         <div class="col-md-6">
-            <button id="admin" class="btn btn-lg btn-primary btn-block">Admin</button>
+            <button id="admin-btn" class="btn btn-lg btn-primary btn-block">Admin</button>
         </div>
     </div>
     <div class="row edit-panel">
@@ -52,7 +52,14 @@
                             <input id="cat-clicks-input" class="form-control" type="number">
                         </div>
                         <div class="form-group">
-                            <input type="submit" class="form-control btn btn-success" value="Save Changes">
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <input id="save-btn" type="submit" class="btn btn-block btn-success" value="Save">
+                                </div>
+                                <div class="col-sm-6">
+                                    <button id="done-btn" class="btn btn-block btn-danger">Cancel</button>
+                                </div>
+                            </div>
                         </div>
                     </form>
                 </div>
