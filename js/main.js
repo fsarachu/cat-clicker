@@ -1,8 +1,8 @@
 var model = {
-    Cat: function Cat(id, name, image) {
+    Cat: function Cat(id, name, picture) {
         this.id = id;
         this.name = name;
-        this.image = image;
+        this.picture = picture;
         this.clicks = 0;
     },
     cats: [],
@@ -23,16 +23,16 @@ var model = {
 
 var view = {
         init: function () {
-            this.catDisplay.render();
+            this.displayArea.render();
             this.catList.render();
-            this.editCat.hide();
+            this.adminArea.hide();
         },
         render: function () {
-            this.catDisplay.render();
+            this.displayArea.render();
             this.catList.render();
-            this.editCat.render();
+            this.adminArea.render();
         },
-        catDisplay: {
+        displayArea: {
             render: function () {
                 var cat = octopus.getCurrentCat();
 
@@ -44,7 +44,7 @@ var view = {
                 $name.text(cat.name);
 
                 var $picture = $panelBody.find(".cat-picture");
-                $picture.attr("src", cat.image);
+                $picture.attr("src", cat.picture);
                 $picture.attr("alt", "A picture of " + cat.name);
                 $picture.attr("data-cat-id", cat.id);
 
@@ -65,19 +65,19 @@ var view = {
                 });
             }
         },
-        editCat: {
+        adminArea: {
             hide: function () {
                 $("#admin-btn").show();
-                $(".edit-panel").hide();
+                $("#admin-panel").hide();
             },
             show: function () {
                 $("#admin-btn").hide();
-                $(".edit-panel").show();
+                $("#admin-panel").show();
             },
             render: function () {
                 var cat = octopus.getCurrentCat();
                 $("#cat-name-input").val(cat.name);
-                $("#cat-picture-input").val(cat.image);
+                $("#cat-picture-input").val(cat.picture);
                 $("#cat-clicks-input").val(cat.clicks);
             }
         }
@@ -109,15 +109,15 @@ var octopus = {
                 $target.siblings().removeClass("active");
                 $target.addClass("active");
 
-                view.catDisplay.render();
-                view.editCat.render();
+                view.displayArea.render();
+                view.adminArea.render();
             }
         });
 
         var $adminBtn = $("#admin-btn");
 
         $adminBtn.on("click", function () {
-            view.editCat.show();
+            view.adminArea.show();
         });
 
         var $saveBtn = $("#save-btn");
@@ -126,7 +126,7 @@ var octopus = {
             $e.preventDefault();
 
             model.currentCat.name = $("#cat-name-input").val();
-            model.currentCat.image = $("#cat-picture-input").val();
+            model.currentCat.picture = $("#cat-picture-input").val();
             model.currentCat.clicks = parseInt($("#cat-clicks-input").val());
 
             view.render();
@@ -137,8 +137,8 @@ var octopus = {
         $cancelBtn.on("click", function ($e) {
             $e.preventDefault();
 
-            view.editCat.render();
-            view.editCat.hide();
+            view.adminArea.render();
+            view.adminArea.hide();
         });
 
         $catList.children().first().trigger("click");
