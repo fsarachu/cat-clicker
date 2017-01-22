@@ -30,6 +30,7 @@ var view = {
         render: function () {
             this.catDisplay.render();
             this.catList.render();
+            this.editCat.render();
         },
         catDisplay: {
             render: function () {
@@ -66,11 +67,11 @@ var view = {
         },
         editCat: {
             hide: function () {
-                $(".admin-btn").show();
+                $("#admin-btn").show();
                 $(".edit-panel").hide();
             },
             show: function () {
-                $(".admin-btn").hide();
+                $("#admin-btn").hide();
                 $(".edit-panel").show();
             },
             render: function () {
@@ -109,7 +110,35 @@ var octopus = {
                 $target.addClass("active");
 
                 view.catDisplay.render();
+                view.editCat.render();
             }
+        });
+
+        var $adminBtn = $("#admin-btn");
+
+        $adminBtn.on("click", function () {
+            view.editCat.show();
+        });
+
+        var $saveBtn = $("#save-btn");
+
+        $saveBtn.on("click", function ($e) {
+            $e.preventDefault();
+
+            model.currentCat.name = $("#cat-name-input").val();
+            model.currentCat.image = $("#cat-picture-input").val();
+            model.currentCat.clicks = parseInt($("#cat-clicks-input").val());
+
+            view.render();
+        });
+
+        var $cancelBtn = $("#cancel-btn");
+
+        $cancelBtn.on("click", function ($e) {
+            $e.preventDefault();
+
+            view.editCat.render();
+            view.editCat.hide();
         });
 
         $catList.children().first().trigger("click");
