@@ -6,6 +6,7 @@ var model = {
         this.clicks = 0;
     },
     cats: [],
+    currentCat: null,
     init: function () {
         var id = 0;
 
@@ -15,72 +16,92 @@ var model = {
         this.cats.push(new this.Cat(id++, "Samantha", "samantha.jpg"));
         this.cats.push(new this.Cat(id++, "Sophie", "sophie.jpg"));
         this.cats.push(new this.Cat(id++, "Tiger", "tiger.jpg"));
+
+        this.currentCat = this.cats[0];
     }
 };
 
 var view = {
-    init: function () {
-        var cats = octopus.getCats();
-        var $catList = $("#cat-list");
+        init: function () {
+            this.catDisplay.render();
+            this.catList.render();
+        },
+        render: function () {
+            this.catDisplay.render();
+            this.catList.render();
+        },
+        catDisplay: {
+            render: function () {
+                var cat = octopus.getCurrentCat();
 
-        cats.forEach(function (cat) {
-            $catList.append("<a data-cat-id=\"" + cat.id + "\" href=\"#\" class=\"list-group-item\">" + cat.name
-                + "<span class=\"cat-clicks badge\">" + cat.clicks + "</span></a>");
-        });
-    },
-    renderCat: function (cat) {
-        var $panel = $("#cat-panel");
-        var $panelHeading = $panel.find(".panel-heading");
-        var $panelBody = $panel.find(".panel-body");
+                var $panel = $("#cat-panel");
+                var $panelHeading = $panel.find(".panel-heading");
+                var $panelBody = $panel.find(".panel-body");
 
-        var $name = $panelHeading.find(".cat-name");
-        $name.text(cat.name);
+                var $name = $panelHeading.find(".cat-name");
+                $name.text(cat.name);
 
-        var $picture = $panelBody.find(".cat-picture");
-        $picture.attr("src", "images/" + cat.image);
-        $picture.attr("alt", "A picture of " + cat.name);
-        $picture.attr("data-cat-id", cat.id);
+                var $picture = $panelBody.find(".cat-picture");
+                $picture.attr("src", "images/" + cat.image);
+                $picture.attr("alt", "A picture of " + cat.name);
+                $picture.attr("data-cat-id", cat.id);
 
-        var $clicks = $panelBody.find(".cat-clicks");
-        $clicks.text(cat.clicks);
-    },
-    updateCounters: function (cat) {
-        $("#cat-panel").find(".cat-clicks").text(cat.clicks);
-        $("#cat-list").find("a[data-cat-id=" + cat.id + "] .cat-clicks").text(cat.clicks);
+                var $clicks = $panelBody.find(".cat-clicks");
+                $clicks.text(cat.clicks);
+            }
+        },
+        catList: {
+            render: function () {
+                var cats = octopus.getCats();
+                var $catList = $("#cat-list");
+
+                $catList.html("");
+
+                cats.forEach(function (cat) {
+                    $catList.append("<a data-cat-id=\"" + cat.id + "\" href=\"#\" class=\"list-group-item\">" + cat.name
+                        + "<span class=\"cat-clicks badge\">" + cat.clicks + "</span></a>");
+                });
+            }
+        }
     }
-};
+    ;
 
 var octopus = {
     init: function () {
-        model.init()
+        model.init();
         view.init();
 
-        $("#cat-panel").find(".cat-picture").on("click", function ($e) {
-            var $target = $($e.target);
-            var catId = parseInt($target.attr("data-cat-id"));
+        var $catPanel = $("#cat-panel");
 
-            var cat = model.cats[catId];
-            cat.clicks += 1;
-
-            view.updateCounters(cat);
+        $catPanel.find(".cat-picture").on("click", function () {
+            model.currentCat.clicks += 1;
+            view.render();
         });
 
-        $("#cat-list").on("click", "a", function ($e) {
+        var $catList = $("#cat-list");
+
+        $catList.on("click", "a", function ($e) {
             $e.preventDefault();
 
             var $target = $($e.target);
-            $target.parent().find(".active").removeClass("active");
-            $target.addClass("active");
 
-            var catId = $target.data("cat-id");
+            if (!$target.hasClass("active")) {
+                $target.siblings().removeClass("active");
+                $target.addClass("active");
 
-            view.renderCat(model.cats[catId]);
+                model.currentCat = model.cats[$target.data("cat-id")];
+
+                view.catDisplay.render();
+            }
         });
 
-        $("#cat-list").children().first().trigger("click");
+        $catList.children().first().trigger("click");
     },
     getCats: function () {
         return model.cats;
+    },
+    getCurrentCat: function () {
+        return model.currentCat;
     }
 }
 
