@@ -1,17 +1,17 @@
 body {
-    background-color: #424242;
+    background-color: #d1d1d1;
     padding: 50px 0;
 }
 
 #cat-panel, #cat-list {
-    height: 350px
+    max-height: 350px
 }
 
 #cat-list {
     overflow: auto;
 }
 
-.cat-name {
+.panel-title {
     font-weight: 700;
 }
 
