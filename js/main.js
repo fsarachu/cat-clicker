@@ -25,6 +25,7 @@ var view = {
         init: function () {
             this.catDisplay.render();
             this.catList.render();
+            this.editCat.hide();
         },
         render: function () {
             this.catDisplay.render();
@@ -61,6 +62,22 @@ var view = {
                     $catList.append("<a data-cat-id=\"" + cat.id + "\" href=\"#\" class=\"list-group-item\">" + cat.name
                         + "<span class=\"cat-clicks badge\">" + cat.clicks + "</span></a>");
                 });
+            }
+        },
+        editCat: {
+            hide: function () {
+                $(".admin-btn").show();
+                $(".edit-panel").hide();
+            },
+            show: function () {
+                $(".admin-btn").hide();
+                $(".edit-panel").show();
+            },
+            render: function () {
+                var cat = octopus.getCurrentCat();
+                $("#cat-name-input").val(cat.name);
+                $("#cat-picture-input").val(cat.image);
+                $("#cat-clicks-input").val(cat.clicks);
             }
         }
     }
