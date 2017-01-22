@@ -1,2 +1,2 @@
 # cat-clicker
-Project for Udacity's "JavaScript Design Patterns" course.
+Just pick a cat from the list and click.
