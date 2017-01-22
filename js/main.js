@@ -86,10 +86,10 @@ var octopus = {
             var $target = $($e.target);
 
             if (!$target.hasClass("active")) {
+                model.currentCat = model.cats[$target.data("cat-id")];
+
                 $target.siblings().removeClass("active");
                 $target.addClass("active");
-
-                model.currentCat = model.cats[$target.data("cat-id")];
 
                 view.catDisplay.render();
             }
