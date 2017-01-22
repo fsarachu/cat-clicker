@@ -15,7 +15,7 @@ var model = {
         this.cats.push(new this.Cat(id++, "Milo", "milo.jpg"));
         this.cats.push(new this.Cat(id++, "Samantha", "samantha.jpg"));
         this.cats.push(new this.Cat(id++, "Sophie", "sophie.jpg"));
-        this.cats.push(new this.Cat(id++, "Tiger", "tiger.jpg"));
+        this.cats.push(new this.Cat(id, "Tiger", "tiger.jpg"));
 
         this.currentCat = this.cats[0];
     }
@@ -103,7 +103,7 @@ var octopus = {
     getCurrentCat: function () {
         return model.currentCat;
     }
-}
+};
 
 $(function () {
     octopus.init();
