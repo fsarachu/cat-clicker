@@ -10,12 +10,12 @@ var model = {
     init: function () {
         var id = 0;
 
-        this.cats.push(new this.Cat(id++, "Bob", "/images/bob.jpg"));
-        this.cats.push(new this.Cat(id++, "Chloe", "/images/chloe.jpg"));
-        this.cats.push(new this.Cat(id++, "Milo", "/images/milo.jpg"));
-        this.cats.push(new this.Cat(id++, "Samantha", "/images/samantha.jpg"));
-        this.cats.push(new this.Cat(id++, "Sophie", "/images/sophie.jpg"));
-        this.cats.push(new this.Cat(id, "Tiger", "/images/tiger.jpg"));
+        this.cats.push(new this.Cat(id++, "Bob", "images/bob.jpg"));
+        this.cats.push(new this.Cat(id++, "Chloe", "images/chloe.jpg"));
+        this.cats.push(new this.Cat(id++, "Milo", "images/milo.jpg"));
+        this.cats.push(new this.Cat(id++, "Samantha", "images/samantha.jpg"));
+        this.cats.push(new this.Cat(id++, "Sophie", "images/sophie.jpg"));
+        this.cats.push(new this.Cat(id, "Tiger", "images/tiger.jpg"));
 
         this.currentCat = this.cats[0];
     }
