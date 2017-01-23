@@ -8,16 +8,30 @@ var model = {
     cats: [],
     currentCat: null,
     init: function () {
-        var id = 0;
+        if (!localStorage.cats) {
+            var id = 0;
+            var cats = [];
 
-        this.cats.push(new this.Cat(id++, "Bob", "images/bob.jpg"));
-        this.cats.push(new this.Cat(id++, "Chloe", "images/chloe.jpg"));
-        this.cats.push(new this.Cat(id++, "Milo", "images/milo.jpg"));
-        this.cats.push(new this.Cat(id++, "Samantha", "images/samantha.jpg"));
-        this.cats.push(new this.Cat(id++, "Sophie", "images/sophie.jpg"));
-        this.cats.push(new this.Cat(id, "Tiger", "images/tiger.jpg"));
+            cats.push(new this.Cat(id++, "Bob", "images/bob.jpg"));
+            cats.push(new this.Cat(id++, "Chloe", "images/chloe.jpg"));
+            cats.push(new this.Cat(id++, "Milo", "images/milo.jpg"));
+            cats.push(new this.Cat(id++, "Samantha", "images/samantha.jpg"));
+            cats.push(new this.Cat(id++, "Sophie", "images/sophie.jpg"));
+            cats.push(new this.Cat(id, "Tiger", "images/tiger.jpg"));
 
-        this.currentCat = this.cats[0];
+            localStorage.cats = JSON.stringify(cats);
+        }
+
+        if (!localStorage.currentCatIndex) {
+            localStorage.currentCatIndex = JSON.stringify(0);
+        }
+
+        this.cats = JSON.parse(localStorage.cats);
+        this.currentCat = this.cats[JSON.parse(localStorage.currentCatIndex)];
+    },
+    save: function () {
+        localStorage.cats = JSON.stringify(this.cats);
+        localStorage.currentCatIndex = JSON.stringify(this.cats.indexOf(this.currentCat));
     }
 };
 
@@ -60,8 +74,13 @@ var view = {
             $catList.html("");
 
             cats.forEach(function (cat) {
-                $catList.append("<a data-cat-id=\"" + cat.id + "\" href=\"#\" class=\"list-group-item\">" + cat.name
+                var $listItem = $("<a data-cat-id=\"" + cat.id + "\" href=\"#\" class=\"list-group-item\">" + cat.name
                     + "<span class=\"cat-clicks badge\">" + cat.clicks + "</span></a>");
+                $catList.append($listItem);
+
+                if (cat === octopus.getCurrentCat()) {
+                    $listItem.addClass("active");
+                }
             });
         }
     },
@@ -93,6 +112,7 @@ var octopus = {
 
         $catPanel.find(".cat-picture").on("click", function () {
             model.currentCat.clicks += 1;
+            model.save();
             view.render();
         });
 
@@ -105,6 +125,7 @@ var octopus = {
 
             if (!$target.hasClass("active")) {
                 model.currentCat = model.cats[$target.data("cat-id")];
+                model.save();
 
                 $target.siblings().removeClass("active");
                 $target.addClass("active");
@@ -129,6 +150,7 @@ var octopus = {
             model.currentCat.name = $("#cat-name-input").val();
             model.currentCat.picture = $("#cat-picture-input").val();
             model.currentCat.clicks = parseInt($("#cat-clicks-input").val());
+            model.save();
 
             view.render();
         });
@@ -141,8 +163,6 @@ var octopus = {
             view.adminArea.visible = false;
             view.adminArea.render();
         });
-
-        $catList.children().first().trigger("click");
     },
     getCats: function () {
         return model.cats;
