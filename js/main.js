@@ -6,6 +6,6 @@ var ViewModel = function () {
     this.incrementCounter = function () {
         this.clickCount(this.clickCount() + 1);
     }
-}
+};
 
 ko.applyBindings(new ViewModel());
