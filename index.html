@@ -14,7 +14,9 @@
         <div class="col-sm-6">
             <div id="cat-panel" class="panel panel-default text-center">
                 <div class="panel-heading">
-                    <h2 data-bind="text: name" class="cat-name panel-title"></h2>
+                    <h2 class="cat-name panel-title">
+                        <span data-bind="text: name"></span>
+                        (<span data-bind="text: level"></span>)</h2>
                 </div>
                 <div class="panel-body">
                     <img data-bind="attr:{src: picture}, click: incrementCounter" class="cat-picture">
