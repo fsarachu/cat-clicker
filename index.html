@@ -19,6 +19,10 @@
                         (<span data-bind="text: level"></span>)</h2>
                 </div>
                 <div class="panel-body">
+                    <h3>AKA:</h3>
+                    <ul class="nicknames" data-bind="foreach: nicknames">
+                        <li data-bind="text: $data"></li>
+                    </ul>
                     <img data-bind="attr:{src: picture}, click: incrementCounter" class="cat-picture">
                     <h3>Clicks: <span data-bind="text: clickCount" class="cat-clicks"></span></h3>
                 </div>

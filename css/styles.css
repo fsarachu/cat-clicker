@@ -3,10 +3,6 @@ body {
     padding: 50px 0;
 }
 
-#cat-panel {
-    height: 350px
-}
-
 #cat-list {
     max-height: 350px
 }
@@ -25,4 +21,12 @@ body {
     padding: 0;
     max-width: 300px;
     max-height: 220px;
+}
+
+.nicknames {
+    padding: 0;
+}
+
+.nicknames li {
+    list-style: none;
 }
