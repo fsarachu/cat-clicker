@@ -15,16 +15,16 @@
             <div id="cat-panel" class="panel panel-default text-center">
                 <div class="panel-heading">
                     <h2 class="cat-name panel-title">
-                        <span data-bind="text: name"></span>
-                        (<span data-bind="text: level"></span>)</h2>
+                        <span data-bind="text: currentCat().name"></span>
+                        (<span data-bind="text: currentCat().level"></span>)</h2>
                 </div>
                 <div class="panel-body">
                     <h3>AKA:</h3>
-                    <ul class="nicknames" data-bind="foreach: nicknames">
+                    <ul class="nicknames" data-bind="foreach: currentCat().nicknames">
                         <li data-bind="text: $data"></li>
                     </ul>
-                    <img data-bind="attr:{src: picture}, click: incrementCounter" class="cat-picture">
-                    <h3>Clicks: <span data-bind="text: clickCount" class="cat-clicks"></span></h3>
+                    <img data-bind="attr:{src: currentCat().picture}, click: incrementCounter" class="cat-picture">
+                    <h3>Clicks: <span data-bind="text: currentCat().clickCount" class="cat-clicks"></span></h3>
                 </div>
             </div>
         </div>
@@ -33,44 +33,44 @@
         </div>
     </div>
     <!--<div class="row">-->
-        <!--<div class="col-md-6">-->
-            <!--<button id="admin-btn" class="btn btn-lg btn-primary btn-block">Admin</button>-->
-        <!--</div>-->
+    <!--<div class="col-md-6">-->
+    <!--<button id="admin-btn" class="btn btn-lg btn-primary btn-block">Admin</button>-->
+    <!--</div>-->
     <!--</div>-->
     <!--<div id="admin-panel" class="row">-->
-        <!--<div class="col-md-6">-->
-            <!--<div class="panel panel-default">-->
-                <!--<div class="panel-heading text-center">-->
-                    <!--<h2 class="panel-title">Edit cat</h2>-->
-                <!--</div>-->
-                <!--<div class="panel-body">-->
-                    <!--<form novalidate>-->
-                        <!--<div class="form-group">-->
-                            <!--<label for="cat-name-input">Name</label>-->
-                            <!--<input id="cat-name-input" class="form-control" type="text">-->
-                        <!--</div>-->
-                        <!--<div class="form-group">-->
-                            <!--<label for="cat-picture-input">Picture URL</label>-->
-                            <!--<input id="cat-picture-input" class="form-control" type="url">-->
-                        <!--</div>-->
-                        <!--<div class="form-group">-->
-                            <!--<label for="cat-clicks-input">Clicks</label>-->
-                            <!--<input id="cat-clicks-input" class="form-control" type="number">-->
-                        <!--</div>-->
-                        <!--<div class="form-group">-->
-                            <!--<div class="row">-->
-                                <!--<div class="col-sm-6">-->
-                                    <!--<input id="save-btn" type="submit" class="btn btn-block btn-success" value="Save">-->
-                                <!--</div>-->
-                                <!--<div class="col-sm-6">-->
-                                    <!--<button id="cancel-btn" class="btn btn-block btn-danger">Cancel</button>-->
-                                <!--</div>-->
-                            <!--</div>-->
-                        <!--</div>-->
-                    <!--</form>-->
-                <!--</div>-->
-            <!--</div>-->
-        <!--</div>-->
+    <!--<div class="col-md-6">-->
+    <!--<div class="panel panel-default">-->
+    <!--<div class="panel-heading text-center">-->
+    <!--<h2 class="panel-title">Edit cat</h2>-->
+    <!--</div>-->
+    <!--<div class="panel-body">-->
+    <!--<form novalidate>-->
+    <!--<div class="form-group">-->
+    <!--<label for="cat-name-input">Name</label>-->
+    <!--<input id="cat-name-input" class="form-control" type="text">-->
+    <!--</div>-->
+    <!--<div class="form-group">-->
+    <!--<label for="cat-picture-input">Picture URL</label>-->
+    <!--<input id="cat-picture-input" class="form-control" type="url">-->
+    <!--</div>-->
+    <!--<div class="form-group">-->
+    <!--<label for="cat-clicks-input">Clicks</label>-->
+    <!--<input id="cat-clicks-input" class="form-control" type="number">-->
+    <!--</div>-->
+    <!--<div class="form-group">-->
+    <!--<div class="row">-->
+    <!--<div class="col-sm-6">-->
+    <!--<input id="save-btn" type="submit" class="btn btn-block btn-success" value="Save">-->
+    <!--</div>-->
+    <!--<div class="col-sm-6">-->
+    <!--<button id="cancel-btn" class="btn btn-block btn-danger">Cancel</button>-->
+    <!--</div>-->
+    <!--</div>-->
+    <!--</div>-->
+    <!--</form>-->
+    <!--</div>-->
+    <!--</div>-->
+    <!--</div>-->
     <!--</div>-->
 
 </div>
