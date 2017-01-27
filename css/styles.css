@@ -3,6 +3,10 @@ body {
     padding: 50px 0;
 }
 
+#cat-panel {
+    height: 350px;
+}
+
 #cat-list {
     max-height: 350px
 }
