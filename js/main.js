@@ -57,19 +57,19 @@ var initialCats = [
 var ViewModel = function () {
     var that = this;
 
-    this.cats = ko.observableArray();
+    that.cats = ko.observableArray();
 
     initialCats.forEach(function (cat) {
         that.cats.push(ko.observable(new Cat(cat)));
     });
 
-    this.currentCat = ko.observable(this.cats()[0]());
+    that.currentCat = ko.observable(that.cats()[0]());
 
-    this.incrementCounter = function () {
+    that.incrementCounter = function () {
         that.currentCat().clickCount(that.currentCat().clickCount() + 1);
     };
 
-    this.setCurrentCat = function () {
+    that.setCurrentCat = function () {
         console.log("Before: " + that.currentCat());
         that.currentCat(this);
         console.log("After: " + that.currentCat());
