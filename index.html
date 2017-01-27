@@ -26,7 +26,7 @@
         </div>
         <div class="col-sm-6">
             <div data-bind="foreach: cats" id="cat-list" class="list-group">
-                <a href="#" class="list-group-item">
+                <a data-bind="click: $parent.setCurrentCat" href="#" class="list-group-item">
                     <span data-bind="text: name"></span>
                     <span data-bind="text: clickCount" class="badge"></span>
                 </a>
