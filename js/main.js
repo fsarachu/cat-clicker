@@ -60,19 +60,17 @@ var ViewModel = function () {
     that.cats = ko.observableArray();
 
     initialCats.forEach(function (cat) {
-        that.cats.push(ko.observable(new Cat(cat)));
+        that.cats.push(new Cat(cat));
     });
 
-    that.currentCat = ko.observable(that.cats()[0]());
+    that.currentCat = ko.observable(that.cats()[0]);
 
     that.incrementCounter = function () {
         that.currentCat().clickCount(that.currentCat().clickCount() + 1);
     };
 
     that.setCurrentCat = function () {
-        console.log("Before: " + that.currentCat());
         that.currentCat(this);
-        console.log("After: " + that.currentCat());
     }
 };
 
