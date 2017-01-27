@@ -20,7 +20,7 @@ var Cat = function (name, picture, nicknames) {
 
         return level;
     }, this);
-}
+};
 
 var ViewModel = function () {
     var self = this;
