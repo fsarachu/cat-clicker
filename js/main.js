@@ -23,10 +23,12 @@ var Cat = function (name, picture, nicknames) {
 }
 
 var ViewModel = function () {
-    this.currentCat = ko.observable(new Cat("Bob", "images/bob.jpg", ["Bobby", "Bobbalicious", "Bobo"]));
+    var self = this;
 
-    this.incrementCounter = function () {
-        this.currentCat().clickCount(this.currentCat().clickCount() + 1);
+    self.currentCat = ko.observable(new Cat("Bob", "images/bob.jpg", ["Bobby", "Bobbalicious", "Bobo"]));
+
+    self.incrementCounter = function () {
+        self.currentCat().clickCount(self.currentCat().clickCount() + 1);
     }
 };
 

@@ -11,26 +11,26 @@
 
 <div class="container">
     <div class="row">
-        <div class="col-sm-6">
+        <div data-bind="with: currentCat" class="col-sm-6">
             <div id="cat-panel" class="panel panel-default text-center">
                 <div class="panel-heading">
                     <h2 class="cat-name panel-title">
-                        <span data-bind="text: currentCat().name"></span>
-                        (<span data-bind="text: currentCat().level"></span>)</h2>
+                        <span data-bind="text: name"></span>
+                        (<span data-bind="text: level"></span>)</h2>
                 </div>
                 <div class="panel-body">
                     <h3>AKA:</h3>
-                    <ul class="nicknames" data-bind="foreach: currentCat().nicknames">
+                    <ul class="nicknames" data-bind="foreach: nicknames">
                         <li data-bind="text: $data"></li>
                     </ul>
-                    <img data-bind="attr:{src: currentCat().picture}, click: incrementCounter" class="cat-picture">
-                    <h3>Clicks: <span data-bind="text: currentCat().clickCount" class="cat-clicks"></span></h3>
+                    <img data-bind="attr:{src: picture}, click: $parent.incrementCounter" class="cat-picture">
+                    <h3>Clicks: <span data-bind="text: clickCount" class="cat-clicks"></span></h3>
                 </div>
             </div>
         </div>
-        <div class="col-sm-6">
-            <div id="cat-list" class="list-group"></div>
-        </div>
+        <!--<div class="col-sm-6">-->
+        <!--<div id="cat-list" class="list-group"></div>-->
+        <!--</div>-->
     </div>
     <!--<div class="row">-->
     <!--<div class="col-md-6">-->
