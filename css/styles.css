@@ -22,11 +22,3 @@ body {
     max-width: 300px;
     max-height: 220px;
 }
-
-.nicknames {
-    padding: 0;
-}
-
-.nicknames li {
-    list-style: none;
-}

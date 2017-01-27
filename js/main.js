@@ -1,7 +1,6 @@
-var Cat = function (name, picture, nicknames) {
+var Cat = function (name, picture) {
     this.clickCount = ko.observable(0);
     this.name = ko.observable(name);
-    this.nicknames = ko.observableArray(nicknames);
     this.picture = ko.observable(picture);
     this.level = ko.computed(function () {
         var level;
@@ -25,7 +24,7 @@ var Cat = function (name, picture, nicknames) {
 var ViewModel = function () {
     var self = this;
 
-    self.currentCat = ko.observable(new Cat("Bob", "images/bob.jpg", ["Bobby", "Bobbalicious", "Bobo"]));
+    self.currentCat = ko.observable(new Cat("Bob", "images/bob.jpg"));
 
     self.incrementCounter = function () {
         self.currentCat().clickCount(self.currentCat().clickCount() + 1);
