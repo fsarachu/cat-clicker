@@ -66,8 +66,8 @@ var ViewModel = function () {
     this.currentCat = this.cats()[0];
 
     this.incrementCounter = function () {
-        this.clickCount(this.clickCount() + 1);
-    }
+        that.currentCat().clickCount(that.currentCat().clickCount() + 1);
+    };
 };
 
 ko.applyBindings(new ViewModel());
