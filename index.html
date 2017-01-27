@@ -24,9 +24,14 @@
                 </div>
             </div>
         </div>
-        <!--<div class="col-sm-6">-->
-        <!--<div id="cat-list" class="list-group"></div>-->
-        <!--</div>-->
+        <div class="col-sm-6">
+            <div data-bind="foreach: cats" id="cat-list" class="list-group">
+                <a href="#" class="list-group-item">
+                    <span data-bind="text: name"></span>
+                    <span data-bind="text: clickCount" class="badge"></span>
+                </a>
+            </div>
+        </div>
     </div>
     <!--<div class="row">-->
     <!--<div class="col-md-6">-->
