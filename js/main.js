@@ -69,8 +69,8 @@ var ViewModel = function () {
         that.currentCat().clickCount(that.currentCat().clickCount() + 1);
     };
 
-    that.setCurrentCat = function () {
-        that.currentCat(this);
+    that.setCurrentCat = function (clickedCat) {
+        that.currentCat(clickedCat);
     }
 };
 
